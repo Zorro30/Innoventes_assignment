@@ -17,11 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from restapp.views import EmployeeViewSet
+from restapp.views import EmployeeAddress
 
 router  = routers.DefaultRouter()
 router.register(r'employee',EmployeeViewSet)
+router2  = routers.DefaultRouter()
+router2.register(r'employeeaddress',EmployeeAddress)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('', include(router2.urls)),
 ]
